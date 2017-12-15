@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../service/http.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
 
-  data: String;
+  showInformation: JSON;
   searchValue: string;
-  show: Boolean;
+  loadingData: Boolean;
 
   constructor( public httpService: HttpService, public route: ActivatedRoute ) { }
 
@@ -20,20 +21,21 @@ export class SearchComponent implements OnInit {
   }
 
   getUser(text: string) {
-    // this.show=false;
+    this.loadingData = true;
     this.httpService.getData(text)
                     .subscribe((res)=> this.fetchData(res));
   }
 
   fetchData(res) {
-    this.data = res.map( (data) => {
+    this.showInformation = res.map( (info) => {
       return {
-        image: data['show']['image'] ? data['show']['image']['medium'] : 'NA',
-        link: data['show']['name'].link(data['show']['url']).replace(/^<a/, '$& target="_blank"') || 'NA',
-        rating: data['show']['rating'] ? data['show']['rating']['average'] ? data['show']['rating']['average'] : 0  : 0,
-        genres: data['show']['genres'],
-        summary: data['show']['summary'] || 'Not Available',
+        image: info['show']['image'] ? info['show']['image']['medium'] : 'NA',
+        link: info['show']['name'].link(info['show']['url']).replace(/^<a/, '$& target="_blank"') || 'NA',
+        rating: info['show']['rating'] ? info['show']['rating']['average'] ? info['show']['rating']['average'] : 0  : 0,
+        genres: info['show']['genres'],
+        summary: info['show']['summary'] || 'Not Available',
       }
     });
+    this.loadingData = false;
   }
 }
