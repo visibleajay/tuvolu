@@ -4,11 +4,12 @@ A TV guide.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
 
-##Steps to follow to run it on local machine.
 
-1) Prerequisites
-   npm - 4.2.X
-   node - 7.10.1
+## Steps to follow to run it on local machine.
+
+1) ### Prerequisites
+        npm - 4.2.X
+        node - 7.10.1 
 
 2) Run npm install on terminal.
 
