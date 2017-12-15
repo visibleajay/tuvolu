@@ -1,0 +1,12 @@
+<div style="margin-top: 20px">
+  <div fxLayout="row">
+    <img [routerLink]="'/home'" style="height: 50px; width: 75px; cursor: pointer" src="../assets/tv-on-search.png" />
+    <input style="margin-top: 5px; width: 500px;height: 25px;" #search [(ngModel)]="searchValue" placeholder="Search Text" (keyup.enter)="getUser(search.value)" />
+    <img style="cursor: pointer" (click)="getUser(search.value)" src="../../assets/search.png" />
+  </div>
+  <div style="width: 65vw; height: 100vh; margin-left: 20px;">
+    <div *ngFor="let value of data">
+      <search-data [info]="value"></search-data>
+    </div>
+  </div>
+</div>

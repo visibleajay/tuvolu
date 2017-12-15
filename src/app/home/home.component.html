@@ -1,0 +1,8 @@
+<div style="text-align: center; margin: 100px 200px;">
+  <img src="../assets/tuvolu.png" />
+  <div><div style="float:right;">A TV Search Engine</div></div>
+  <div style="margin-top: 40px;">
+    <input style="width: 400px; height: 25px;" #searchBox placeholder="Search Text" (keyup.enter)="getData(searchBox.value)" />
+    <img style="vertical-align: middle; cursor: pointer" (click)="getData(searchBox.value)" src="../assets/search.png" />    
+  </div>
+</div>
