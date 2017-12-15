@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'search-data',
   templateUrl: './search-data.component.html',
   styleUrls: ['./search-data.component.scss']
 })
-export class SearchDataComponent implements OnInit {
+export class SearchDataComponent {
 
   @Input() info;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
