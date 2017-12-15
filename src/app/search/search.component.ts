@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpService } from '../service/http.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   templateUrl: './search.component.html',
@@ -12,6 +13,7 @@ export class SearchComponent implements OnInit {
   showInformation: JSON;
   searchValue: string;
   loadingData: Boolean;
+  subscribe: Subscription;
 
   constructor( public httpService: HttpService, public route: ActivatedRoute ) { }
 
@@ -22,7 +24,7 @@ export class SearchComponent implements OnInit {
 
   getUser(text: string) {
     this.loadingData = true;
-    this.httpService.getData(text)
+    this.subscribe = this.httpService.getData(text)
                     .subscribe((res)=> this.fetchData(res));
   }
 
@@ -37,5 +39,9 @@ export class SearchComponent implements OnInit {
       }
     });
     this.loadingData = false;
+  }
+
+  ngOnDestroy() {
+    this.subscribe.unsubscribe();
   }
 }
