@@ -1,18 +1,18 @@
-<mat-card fxLayout="row" fxLayoutGap="10">
-  <div fxFlex="20%" style="text-align: center" >
-    <img style="width: 157px; height: 221px" [src]="info.image"/>
+<mat-card class="margin5px" fxLayout="row" fxLayoutGap="10">
+  <div fxFlex="20%" class="textAlignCenter" >
+    <img id="showImage" [src]="info.image"/>
   </div>
   <div fxLayout="column" fxFlex="80%">
     <div fxLayout="column">
       <div fxFlex fxLayout="row">
-        <div target="_blank" [innerHtml]="info.link"></div>
+        <div [innerHtml]="info.link"></div>
         <star-rating-comp [starType]="'svg'" [readOnly]="true" [rating]="info.rating" [numOfStars]="10"></star-rating-comp>
       </div>
       <div fxFlex>
         {{info.genres}}
       </div>
     </div>
-    <div [innerHtml]="info.summary" fxFlex="grow">
+    <div class="textAlignJustify" [innerHtml]="info.summary" fxFlex="grow">
     </div>
   </div>
 </mat-card>

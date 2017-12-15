@@ -4,3 +4,23 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 $maxNumOfStars: 10;
+
+.cursorPointer {
+    cursor: pointer;
+}
+
+.verticalAlignMiddle {
+    vertical-align: middle;
+}
+
+.textAlignCenter {
+    text-align: center;
+}
+
+.floatRight {
+    float: right;
+}
+
+.textAlignJustify{
+    text-align: justify;
+}
