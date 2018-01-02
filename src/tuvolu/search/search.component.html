@@ -1,15 +1,15 @@
 <div class="marginTop20px">
   <div fxLayout="row">
     <img id="tuvolu-icon" class="cursorPointer" [routerLink]="'/home'" src="../assets/tv-on-search.png" />
-    <input id="searchInput"  #search [(ngModel)]="searchValue" placeholder="Search Text" (keyup.enter)="getUser(search.value)" />
+    <input class="searchInput"  #search [value]="searchValue$ | async" placeholder="Search Text" (keyup.enter)="getUser(search.value)" />
     <img class="cursorPointer" (click)="getUser(search.value)" src="../../assets/search.png" />
   </div>
   <div id="displayShowInformation">
-    <div *ngIf="loadingData" fxLayoutAlign="center center" style="width: 100vw; height: 80vh;">
+    <div *ngIf="loadingData$ | async" fxLayoutAlign="center center" style="width: 100vw; height: 80vh;">
       <mat-spinner [diameter]="25"></mat-spinner>
     </div>
-    <div *ngIf="!loadingData">
-      <div *ngFor="let value of showInformation">
+    <div *ngIf="!(loadingData$ | async)">
+      <div *ngFor="let value of showInformation$ | async">
         <search-data [info]="value"></search-data>
       </div>
     </div>

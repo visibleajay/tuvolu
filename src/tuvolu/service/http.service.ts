@@ -8,7 +8,7 @@ export class HttpService {
 
   constructor(public http: Http) { }
 
-  getData(value: string) {
+  getData(value: String) {
     return this.http.get(`http://api.tvmaze.com/search/shows?q=${value}`)
              .map((res: Response) => res.json())
              .catch((error) => {

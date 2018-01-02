@@ -4,7 +4,7 @@
     width: 75px; 
 }
 
-#searchInput {
+.searchInput {
     margin-top: 5px; 
     width: 500px;
     height: 25px;

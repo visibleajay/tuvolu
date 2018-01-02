@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TuvoluActions } from '../core/tuvolu.actions';
 
 @Component({
   templateUrl: './home.component.html',
@@ -7,9 +8,11 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(public router: Router) {}
+  constructor(public router: Router,
+              public actions: TuvoluActions) {}
 
   getData(text: string) {
-    this.router.navigate(['search', text ]);
+    this.actions.getData(text);
+    this.router.navigate(['search']);
   }
 }

@@ -6,8 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./search-data.component.scss']
 })
 export class SearchDataComponent {
-
   @Input() info;
-
-  constructor() { }
 }

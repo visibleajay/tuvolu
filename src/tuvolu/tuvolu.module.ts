@@ -8,6 +8,7 @@ import { TuvoluComponent } from './tuvolu.component';
 import {NgRedux, DevToolsExtension} from '@angular-redux/store';
 
 import { ITuvoluState, rootReducer, INITIAL_STATE } from './core/tuvolu.state';
+import {TuvoluActions} from './core/tuvolu.actions';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { ITuvoluState, rootReducer, INITIAL_STATE } from './core/tuvolu.state';
     ...TuvoluModules,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [HttpService],
+  providers: [HttpService, TuvoluActions],
   bootstrap: [TuvoluComponent]
 })
 export class TuvoluModule {

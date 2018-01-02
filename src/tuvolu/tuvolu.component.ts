@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'main-comp',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './tuvolu.component.html',
+  styleUrls: ['./tuvolu.component.css']
 })
 export class TuvoluComponent {
 
