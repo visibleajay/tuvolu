@@ -2,20 +2,18 @@ import { HttpService } from './service/http.service';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { AppModules } from './app.constant';
-import { Component } from './app.constant';
-import { ROUTES } from './app.constant';
-import { AppComponent } from './app.component';
+import { TuvoluModules, Component, ROUTES } from './tuvolu.constant';
+import { TuvoluComponent } from './tuvolu.component';
 
 @NgModule({
   declarations: [
     ...Component
   ],
   imports: [
-    ...AppModules,
+    ...TuvoluModules,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [HttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [TuvoluComponent]
 })
-export class AppModule { }
+export class TuvoluModule { }

@@ -7,7 +7,7 @@ import { StarRatingModule } from 'angular-star-rating';
 import { MatCardModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
 
-export const AppModules = [
+export const TuvoluModules = [
     BrowserModule,
     HttpModule,
     FormsModule,
@@ -17,13 +17,13 @@ export const AppModules = [
     MatProgressSpinnerModule
 ];
 
-import { AppComponent } from './app.component';
+import { TuvoluComponent } from './tuvolu.component';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { SearchDataComponent } from './search-data/search-data.component';
 
 export const Component = [
-    AppComponent,
+    TuvoluComponent,
     SearchComponent,
     HomeComponent,
     SearchDataComponent
