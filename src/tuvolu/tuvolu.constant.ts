@@ -7,6 +7,8 @@ import { StarRatingModule } from 'angular-star-rating';
 import { MatCardModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
 
+import {NgReduxModule} from '@angular-redux/store';
+
 export const TuvoluModules = [
     BrowserModule,
     HttpModule,
@@ -14,7 +16,8 @@ export const TuvoluModules = [
     FlexLayoutModule,
     StarRatingModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgReduxModule
 ];
 
 import { TuvoluComponent } from './tuvolu.component';
