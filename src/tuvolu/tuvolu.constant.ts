@@ -1,6 +1,5 @@
 
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StarRatingModule } from 'angular-star-rating';
@@ -11,7 +10,6 @@ import {NgReduxModule} from '@angular-redux/store';
 
 export const TuvoluModules = [
     BrowserModule,
-    HttpModule,
     FormsModule,
     FlexLayoutModule,
     StarRatingModule,

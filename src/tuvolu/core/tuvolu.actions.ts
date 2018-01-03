@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { Action } from 'redux';
 import { NgRedux } from '@angular-redux/store';
 import { ITuvoluState } from './tuvolu.state';
-import { HttpService } from '../service/http.service';
 
 @Injectable()
 export class TuvoluActions {
@@ -17,9 +16,7 @@ export class TuvoluActions {
     static GET_REQUEST_ERROR = "GET_REQUEST_ERROR";
     static GET_REQUEST_SUCCESS = "GET_REQUEST_SUCCESS";
 
-    constructor(private ngRedux: NgRedux<ITuvoluState>,
-                private http: HttpService) {
-    }
+    constructor(private ngRedux: NgRedux<ITuvoluState>){}
 
     getData(value: String) {
         this.ngRedux.dispatch(

@@ -1,4 +1,3 @@
-import { HttpService } from './service/http.service';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -19,7 +18,7 @@ import { APIMiddleware } from './core/tuvolu.middleware';
     ...TuvoluModules,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [HttpService, TuvoluActions],
+  providers: [TuvoluActions],
   bootstrap: [TuvoluComponent]
 })
 export class TuvoluModule {
