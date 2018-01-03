@@ -39,7 +39,7 @@ export const ROUTES: Routes = [{
     redirectTo: '/home',
     pathMatch: 'full'
   },{
-    path: 'search/:text', 
+    path: 'search', 
     component: SearchComponent
   },{
     path: 'home',
