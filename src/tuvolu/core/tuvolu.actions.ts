@@ -13,6 +13,9 @@ export class TuvoluActions {
     static SEARCH_URL = "SEARCH_URL";
     static UPDATE_LOADING_STATE = 'UPDATE_LOADING_STATE';
     static ADD_TVDATA = "ADD_TVDATA";
+    static MAKE_API_REQUEST = "MAKE_API_REQUEST";
+    static GET_REQUEST_ERROR = "GET_REQUEST_ERROR";
+    static GET_REQUEST_SUCCESS = "GET_REQUEST_SUCCESS";
 
     constructor(private ngRedux: NgRedux<ITuvoluState>,
                 private http: HttpService) {
@@ -23,17 +26,18 @@ export class TuvoluActions {
             this.addSearchString(value)
         );
         this.ngRedux.dispatch(this.updateLoadingData(true));
-        this.makeAPIRequest(value).subscribe(data => this.updateData(data));
+        this.ngRedux.dispatch(this.makeAPIRequest(value));
+        // this.makeAPIRequest(value).subscribe(data => this.updateData(data));
     }
 
-    updateData(data) {
-        this.ngRedux.dispatch(
-            this.addTVData(data)
-        )
-        this.ngRedux.dispatch(
-            this.updateLoadingData(false)
-        )
-    }
+    // updateData(data) {
+    //     // this.ngRedux.dispatch(
+    //     //     this.addTVData(data)
+    //     // )
+    //     this.ngRedux.dispatch(
+    //         this.updateLoadingData(false)
+    //     )
+    // }
 
     updateLoadingData(value: Boolean) {
         return {
@@ -44,16 +48,17 @@ export class TuvoluActions {
         }
     }
 
-    addTVData(data) {
+    static addTVData(data) {
         return {
             type: TuvoluActions.ADD_TVDATA,
             payload: {
-                data: this.getTVData(data)
+                data: TuvoluActions.getTVData(data),
+                loading: false
             }
         }
     }
 
-    getTVData(tvDataSet) {
+    static getTVData = (tvDataSet) => {
         return tvDataSet.map((info) => {
             return {
                 image: info['show']['image'] ? info['show']['image']['medium'] : 'NA',
@@ -75,6 +80,30 @@ export class TuvoluActions {
     }
 
     makeAPIRequest(value: String) {
-        return this.http.getData(value);
+        // return this.http.getData(value);
+        return {
+            type: TuvoluActions.MAKE_API_REQUEST,
+            payload: {
+                searchText: value
+            }
+        }
+    }
+
+    // static APISuccess(success) {
+    //     return {
+    //         type: TuvoluActions.GET_REQUEST_SUCCESS,
+    //         payload: {
+    //             data: success
+    //         }
+    //     }
+    // }
+
+    static handleAPIError(error) {
+        return {
+            type: TuvoluActions.GET_REQUEST_ERROR,
+            payload: {
+                error: error
+            }
+        }
     }
 }

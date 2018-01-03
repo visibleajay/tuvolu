@@ -37,9 +37,12 @@ export function rootReducer(lastState = INITIAL_STATE, action) {
             return Object.assign(
                 {},
                 lastState,
-                {data: action.payload.data}
-            ) ;
+                {data: action.payload.data,
+                loading: action.payload.loading}
+            );
+        case TuvoluActions.GET_REQUEST_ERROR:
+            return lastState;
         default:
-            lastState;
+            return lastState;
     }
 }
