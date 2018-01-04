@@ -31,6 +31,7 @@ export const Component = [
 ];
 
 import { Routes } from '@angular/router';
+import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 
 export const ROUTES: Routes = [{
     path: '',
@@ -38,7 +39,8 @@ export const ROUTES: Routes = [{
     pathMatch: 'full'
   },{
     path: 'search', 
-    component: SearchComponent
+    component: SearchComponent,
+    canActivate: [AuthGuard]
   },{
     path: 'home',
     component: HomeComponent
