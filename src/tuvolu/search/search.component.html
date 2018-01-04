@@ -1,8 +1,7 @@
 <div class="marginTop20px">
   <div fxLayout="row">
     <img id="tuvolu-icon" class="cursorPointer" [routerLink]="'/home'" src="../assets/tv-on-search.png" />
-    <input class="searchInput"  #search [value]="searchValue$ | async" placeholder="Search Text" (keyup.enter)="tuvoluActions.getData(search.value)" />
-    <img class="cursorPointer" (click)="tuvoluActions.getData(search.value)" src="../../assets/search.png" />
+    <search-bar (searchClick)="tuvoluActions.getData($event)" [searchKeyword]="searchValue$ | async"></search-bar>
   </div>
   <div id="displayShowInformation">
     <div *ngIf="loadingData$ | async" fxLayoutAlign="center center" style="width: 100vw; height: 80vh;">

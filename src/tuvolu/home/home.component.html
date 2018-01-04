@@ -2,7 +2,6 @@
   <img src="../assets/tuvolu.png" />
   <div><div class="floatRight">A TV Search Engine</div></div>
   <div class="marginTop40px">
-    <input class="homeSearchInput" #searchBox placeholder="Search Text" (keyup.enter)="getData(searchBox.value)" />
-    <img class="verticalAlignMiddle cursorPointer" (click)="getData(searchBox.value)" src="../assets/search.png" />
+    <search-bar fxLayoutAlign="center center" (searchClick)="getData($event)"></search-bar>
   </div>
 </div>
