@@ -1,0 +1,4 @@
+<div>
+    <input class="searchInput" #search [value]="searchKeyword" placeholder="Search Text" (keyup.enter)="searchClick.emit(search.value)" />
+    <img class="cursorPointer" (click)="searchClick.emit(search.value)" src="../../assets/search.png" />
+</div>

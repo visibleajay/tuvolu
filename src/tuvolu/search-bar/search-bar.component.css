@@ -1,0 +1,30 @@
+input {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+    color: inherit;
+    padding: 0;
+    padding-inline-end: 36px;
+    padding-inline-start: 5px;
+    width: 100%;
+    font-size: 15px;
+}
+
+img {
+    border-radius: 0 3px 3px 0;
+    border: 0;
+    width: 36px;
+    background-size: 16px 16px;
+    height: 100%;
+    offset-inline-end: 0;
+    position: absolute;
+}
+
+div {
+    cursor: default;
+    display: flex;
+    position: relative;
+    margin: 0 0 40px;
+    width: 600px;
+    height: 36px;
+}

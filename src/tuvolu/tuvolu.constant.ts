@@ -22,12 +22,14 @@ import { TuvoluComponent } from './tuvolu.component';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { SearchDataComponent } from './search-data/search-data.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 export const Component = [
     TuvoluComponent,
     SearchComponent,
     HomeComponent,
-    SearchDataComponent
+    SearchDataComponent,
+    SearchBarComponent
 ];
 
 import { Routes } from '@angular/router';
