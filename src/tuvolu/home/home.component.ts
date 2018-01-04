@@ -12,7 +12,9 @@ export class HomeComponent {
               public actions: TuvoluActions) {}
 
   getData(text: string) {
-    this.actions.getData(text);
-    this.router.navigate(['search']);
+    if ( text.length ) {
+      this.actions.getData(text);
+      this.router.navigate(['search']);
+    }
   }
 }
