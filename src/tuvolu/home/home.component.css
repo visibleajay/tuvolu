@@ -12,3 +12,9 @@
     height: 25px;
 }
 
+@media (max-width: 1080px)  {
+    .margin100200 {
+        margin: 0px;
+    }
+}
+
