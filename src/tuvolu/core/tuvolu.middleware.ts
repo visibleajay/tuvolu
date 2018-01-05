@@ -12,7 +12,7 @@ export const APIMiddleware = store => next => action => {
             result = next(TuvoluActions.addTVData(res));
         })
         .catch( (error) => {
-            result = next(TuvoluActions.handleAPIError(error));
+            result = next(TuvoluActions.handleAPIError(error.message));
         });
     }
     return result;

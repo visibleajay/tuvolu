@@ -50,6 +50,7 @@ export class TuvoluActions {
             type: TuvoluActions.ADD_TVDATA,
             payload: {
                 data: TuvoluActions.getTVData(data),
+                networkError: false,
                 loading: false
             }
         }
@@ -95,11 +96,13 @@ export class TuvoluActions {
     //     }
     // }
 
-    static handleAPIError(error) {
+    static handleAPIError(error: String) {
         return {
             type: TuvoluActions.GET_REQUEST_ERROR,
             payload: {
-                error: error
+                networkError: true,
+                loading: false,
+                errorMessage: error
             }
         }
     }

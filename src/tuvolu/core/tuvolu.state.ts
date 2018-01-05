@@ -12,12 +12,16 @@ export interface IDataState {
 export interface ITuvoluState{
     searchText: String;
     loading: Boolean;
+    networkError: Boolean;
+    errorMessage: String;
     data: IDataState[];
 }
 
 export const INITIAL_STATE = {
     searchText: '',
     loading: false,
+    networkError: false,
+    errorMessage: '',
     data: []
 }
 
@@ -37,10 +41,16 @@ export function rootReducer(lastState = INITIAL_STATE, action) {
             return {
                 ...lastState,
                 data : action.payload.data,
+                networkError: action.payload.networkError,
                 loading : action.payload.loading
             };
         case TuvoluActions.GET_REQUEST_ERROR:
-            return lastState;
+            return {
+                ...lastState,
+                errorMessage: action.payload.errorMessage,
+                networkError: action.payload.networkError,
+                loading : action.payload.loading
+            };
         default:
             return lastState;
     }
