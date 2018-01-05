@@ -8,8 +8,13 @@
       <mat-spinner [diameter]="25"></mat-spinner>
     </div>
     <div *ngIf="!(loadingData$ | async)">
-      <div *ngFor="let value of showInformation$ | async">
-        <search-data [info]="value"></search-data>
+      <div *ngIf="!(networkError$| async)">
+        <div *ngFor="let value of showInformation$ | async">
+          <search-data [info]="value"></search-data>
+        </div>
+      </div>
+      <div class="error" *ngIf="(networkError$ | async)">
+        Error: {{ errorMessage$ | async }}
       </div>
     </div>
   </div>

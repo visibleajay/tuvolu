@@ -20,5 +20,11 @@ export class SearchComponent{
   @select('loading')
   loadingData$: Observable<Boolean>;
 
+  @select('networkError')
+  networkError$: Observable<Boolean>;
+
+  @select('errorMessage')
+  errorMessage$: Observable<String>;
+  
   constructor( public tuvoluActions: TuvoluActions ) {}
 }
